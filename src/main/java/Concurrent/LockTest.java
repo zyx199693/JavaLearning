@@ -4,6 +4,7 @@ public class LockTest {
     private boolean isLocked = false;
     private Thread lockingThread = null;
     public synchronized void lock() throws InterruptedException {
+        //自旋锁
         while(isLocked) {
             wait();
         }
