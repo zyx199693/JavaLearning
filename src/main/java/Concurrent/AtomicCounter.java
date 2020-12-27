@@ -12,6 +12,7 @@ public class AtomicCounter {
         boolean updated = false;
         while(!updated) {
             long prevCount = this.count.get();
+            //compareAndSet() is atomic operation,so only one thread can operate increase once a time
             updated = this.count.compareAndSet(prevCount, prevCount + 1);
         }
     }
